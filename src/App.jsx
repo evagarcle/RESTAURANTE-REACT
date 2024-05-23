@@ -1,6 +1,7 @@
 import './App.css'
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
+import Reserve from './components/Reserve/Reserve'
 
 const dishes = [
   {
@@ -29,6 +30,7 @@ function App() {
       <div>
         <Header/>
         <Home dishes={dishes}/>
+        <Reserve/>
        </div>
   )
 }
