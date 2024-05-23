@@ -1,4 +1,6 @@
+
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 const Reserve = () => {
@@ -10,6 +12,9 @@ const Reserve = () => {
     time: ''
   })
 
+
+
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormInfo({
@@ -18,15 +23,28 @@ const Reserve = () => {
     })
   }
 
+
+  let navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    localStorage.setItem("reservationInfo", JSON.stringify(formInfo))
+    
+    const savedReservations = JSON.parse(localStorage.getItem("reservationInfo")) || []
+    const updatedReservations = [...savedReservations, formInfo]
+    localStorage.setItem("reservationInfo", JSON.stringify(updatedReservations))
+    
+  
+    alert("Reserva guardada")
     setFormInfo({
       name: '',
       date: '',
       people: '',
       time: ''
     })
+
+    setTimeout(() => {
+      navigate("/")
+    }, 2000)
   }
 
 
@@ -52,6 +70,7 @@ const Reserve = () => {
           <label>Hora:</label>
           <input type="time" name="time" id="time" value={formInfo.time} onChange={handleChange} required/>
         </div>
+        <button type="submit" >Enviar y reservar</button>
       </form>
 
     </div>

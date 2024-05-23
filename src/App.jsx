@@ -1,7 +1,9 @@
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import './App.css'
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import Reserve from './components/Reserve/Reserve'
+import Reserves from "./components/Reserves/Reserves"
 
 const dishes = [
   {
@@ -27,11 +29,16 @@ const dishes = [
 
 function App() {
   return (
-      <div>
+     
+      <Router>
         <Header/>
-        <Home dishes={dishes}/>
-        <Reserve/>
-       </div>
+        <Routes>
+          <Route path="/" element = {<Home dishes={dishes}/>} />
+          <Route path="/reserve" element = {<Reserve/>} />
+          <Route path="/reserves" element = {<Reserves/>} />
+          
+        </Routes>
+      </Router>
   )
 }
 

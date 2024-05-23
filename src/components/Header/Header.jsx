@@ -1,9 +1,15 @@
+import {Link} from "react-router-dom"
 
 const Header = () => {
   return (
-    <header>
-      <h1>Restaurante</h1>
-    </header>
+    <div>
+      <span>Header</span>
+      <nav>
+      <span><Link to="/">Home</Link> </span>
+        <span><Link to="/reserve">Reservar</Link> </span>
+        <span><Link to="/reserves">Todas las reservas</Link> </span>
+      </nav>
+    </div>
   )
 }
 
