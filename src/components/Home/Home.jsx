@@ -1,5 +1,4 @@
 
-
 const Home = ({dishes}) => {
   return (
     <div>
@@ -9,7 +8,7 @@ const Home = ({dishes}) => {
           <li key={dish.id}>
             <h3>{dish.name}</h3>
             <p>{dish.description}</p>
-            <p>Precio:{dish.price}</p>
+            <p>Precio: {dish.price}€</p>
           </li>
         ))}
       </ul>
